@@ -94,7 +94,7 @@
 		<div class="twelve columns">
 			<h2 id="overview">Overview</h2>
 
-<p>What follows is a walkthrough of the Python security challenge posed on <a href="http://blog.quarkslab.com/you-like-python-security-challenge-and-traveling-win-a-free-ticket-to-hitb-kul.html">QuarkLabs</a> and the steps I took to complete it. There are likely many other routes to get to the same goal, what follows is just what occured to me as I drank 21st Amendment <em>Hell or High Watermelon</em></p>
+<p>What follows is a walkthrough of the Python security challenge posed on <a href="http://blog.quarkslab.com/you-like-python-security-challenge-and-traveling-win-a-free-ticket-to-hitb-kul.html">QuarkLabs</a> and the steps I took to complete it. There are likely many other routes to get to the same goal, what follows is just what occurred to me as I drank 21st Amendment <em>Hell or High Watermelon</em></p>
 
 <p><center> <br />
 <img src="http://21st-amendment.com/assets/hhwatermelon_can-230x409.png" alt="image" />
@@ -133,7 +133,7 @@ _['j'] in (_['i'] if ('i' in _) else i)]), _.__setitem__('l', _['!']), _)[-1
 
 <p>(fig 1)</p>
 
-<p>So on quick inspection of the mess we can see that the outermost lambda takes in three values <code>g</code>, <code>c</code> and <code>d</code> and returns the <code>'$'</code> element of a dictionary. Inbetween that a lot of nested function calls take place. <br />
+<p>So on quick inspection of the mess we can see that the outermost lambda takes in three values <code>g</code>, <code>c</code> and <code>d</code> and returns the <code>'$'</code> element of a dictionary. In-between that a lot of nested function calls take place. <br />
 In an effort to understand WTF is going on in the mess let's break out the lambdas and allow ourselves to work through them one at a time. Given that each lambda is taking the result of the next lambda it makes sense to start at the inner most lambda and work our way backwards (out) from there.</p>
 
 <p>The starting point is the establishment of dictionary object using the values passed into the outmost object (whatever they end up being), all very straight forward:</p>
@@ -154,7 +154,7 @@ In an effort to understand WTF is going on in the mess let's break out the lambd
 
 <p>(fig 3)</p>
 
-<p>For those not super fluent in lambdas (yet!) this takes in a variable named <code>_</code> as it's argument and then proceeds to call the <code>__setitem__</code> method on it, showing us that <code>_</code> is a dictionry object and that initially the key <code>'!'</code> is being set to a list of integers, which is then itself finally reassigned to the key <code>'l0'</code>. At the end of this our dictionary looks like:</p>
+<p>For those not super fluent in lambdas (yet!) this takes in a variable named <code>_</code> as it's argument and then proceeds to call the <code>__setitem__</code> method on it, showing us that <code>_</code> is a dictionary object and that initially the key <code>'!'</code> is being set to a list of integers, which is then itself finally reassigned to the key <code>'l0'</code>. At the end of this our dictionary looks like:</p>
 
 <pre><code class="prettyprint codelang-python">{ 'g': g,
 'c': c,  
@@ -185,7 +185,7 @@ In an effort to understand WTF is going on in the mess let's break out the lambd
 
 <p>(fig 5)</p>
 
-<p>The only difference this time is the lambda takes the dictioary output from the previous lambda (fig4) as it's input and then overwrites the <code>'!'</code> element with a new list of integers which then gets reassigned to the <code>'l1'</code> element. The dictionary now looks like:</p>
+<p>The only difference this time is the lambda takes the dictionary output from the previous lambda (fig4) as it's input and then overwrites the <code>'!'</code> element with a new list of integers which then gets reassigned to the <code>'l1'</code> element. The dictionary now looks like:</p>
 
 <pre><code class="prettyprint codelang-python">{ 'g': g,
 'c': c,  
@@ -232,7 +232,7 @@ for _['j'] in (_['i']
 
 <p>(fig 8)</p>
 
-<p>All this is really doing is looking for the presence of a key in a dictionary and returning one of two results based on whetehr the key is there or not, it's somewhat equivilent to the <code>get</code> method on a dictionary with the optional default argument. We then hit a for loop:</p>
+<p>All this is really doing is looking for the presence of a key in a dictionary and returning one of two results based on whether the key is there or not, it's somewhat equivalent to the <code>get</code> method on a dictionary with the optional default argument. We then hit a for loop:</p>
 
 <pre><code class="prettyprint codelang-python">for _[ 'i'] in (_['zip'] if ('zip' in _) else zip)  
 </code></pre>
@@ -277,7 +277,7 @@ l     [1375, 1373, 1368, 1281, 1294, 1288, 1293, 1373, 1373, 1290, 1295,
 
 <p>(fig 10)</p>
 
-<p>The follwoing lambda is the first time we see any of the variables (<code>g</code>, <code>c</code>, <code>d</code>) that are passed into the outer most lambda being referenced. This lambda XOR's (<code>^</code>) the value of <code>d</code> with itself. Obvioulsy any number XOR'd with itself just returns 0. This means that the value of the <code>d</code> variable can just be any integer and the <code>'i'</code> key in the dictionary will get set to 0.</p>
+<p>The following lambda is the first time we see any of the variables (<code>g</code>, <code>c</code>, <code>d</code>) that are passed into the outer most lambda being referenced. This lambda XOR's (<code>^</code>) the value of <code>d</code> with itself. Obviously any number XOR'd with itself just returns 0. This means that the value of the <code>d</code> variable can just be any integer and the <code>'i'</code> key in the dictionary will get set to 0.</p>
 
 <pre><code class="prettyprint codelang-python">lambda _: (_.__setitem__('!',  
                              ((_['d'] if ('d' in _) else d)
@@ -313,7 +313,7 @@ _) else g) % 4) and ((_['i'] if ('i' in _) else i)&lt; (_['len'] if ('len' in _
 
 <p>(fig 13)</p>
 
-<p>Walking through this we again see alot of the same conditional checks for keys in the dictionary, the <code>'i'</code> value is then used as an iterator to walk through the values in the list <code>'l'</code> from the dictionary and perform a mathematical operation on them.</p>
+<p>Walking through this we again see a lot of the same conditional checks for keys in the dictionary, the <code>'i'</code> value is then used as an iterator to walk through the values in the list <code>'l'</code> from the dictionary and perform a mathematical operation on them.</p>
 
 <p>First each item in the <code>'l'</code> list is XOR'd (<code>^</code>) with the value held in the <code>c</code> variable and puts the result in a list in the <code>'s'</code> key.</p>
 
@@ -397,7 +397,7 @@ for guess in range(c, 10000):
 
 <p>Going to <a href="index.html">blog.quarkslab.com/static/resources/b7d8438de09fffb12e3950e7ad4970a4a998403bdf3763dd4178adf</a> results in a file downloading.</p>
 
-<p>A pure Python equivilent of the transformations done by the lambda's follows to aid any understanding that is needed:</p>
+<p>A pure Python equivalent of the transformations done by the lambda's follows to aid any understanding that is needed:</p>
 
 <pre><code class="prettyprint codelang-python">l = [1375, 1373, 1368, 1281, 1294, 1288, 1293, 1373, 1373, 1290, 1295,  
 1294, 1290, 1375, 1373, 1371, 1290, 1289, 1293, 1281, 1280, 1280, 1368,  
@@ -561,7 +561,7 @@ patched into the depending modules.  Once done I played around to see what <code
 
 <p>Right fuckit, let's jump into the binary itself - fire up IDA Pro or if you don't have that then <a href="http://www.hopperapp.com/">Hopper</a> has a free trial.</p>
 
-<p>Symbols hadn't been stripped so finding the code relating to the do<em>not</em>run_me module was pretty straightforward, a psuedo code example of them is below:</p>
+<p>Symbols hadn't been stripped so finding the code relating to the do<em>not</em>run_me module was pretty straightforward, a pseudo code example of them is below:</p>
 
 <pre><code class="prettyprint codelang-c">function initdo_not_run_me {  
     rax = Py_InitModule4_64("do_not_run_me", HelloMethods, 0x0, 0x0, 0x3f5);
@@ -591,7 +591,7 @@ patched into the depending modules.  Once done I played around to see what <code
 
 <p>(fig 31)</p>
 
-<p>The init code of <code>do_not_run_me</code> looks absolutely standard. The code associated with <code>run_me</code> shows the use of Python marshaling via the <code>PyMarshal_ReadObjectFromString()</code> function  (docs here <a href="index.html">https://docs.python.org/2/c-api/marshal.html</a>) of two strings referenced as <code>incr.9351</code> and <code>decr.9357</code>.</p>
+<p>The init code of <code>do_not_run_me</code> looks absolutely standard. The code associated with <code>run_me</code> shows the use of Python marshalling via the <code>PyMarshal_ReadObjectFromString()</code> function  (docs here <a href="index.html">https://docs.python.org/2/c-api/marshal.html</a>) of two strings referenced as <code>incr.9351</code> and <code>decr.9357</code>.</p>
 
 <p>Looking in the binary the two blobs of data that are referenced as <code>incr.9351</code> and <code>decr.9357</code> can be easily found and carved out,  they are shown below in their Python hex string form:</p>
 
@@ -721,7 +721,7 @@ IndexError: tuple index out of range
 
 <p>(fig 35)</p>
 
-<p>As can be infered from the code objects name this is not a marshaled object of standard Python bytecode and so the disassembler crashes out when it gets confused.</p>
+<p>As can be inferred from the code objects name this is not a marshalled object of standard Python bytecode and so the disassembler crashes out when it gets confused.</p>
 
 <p>I assume that conversely whatever is given as the argument to <code>do_not_run_me.run_me</code> also needs to have an object using the same remapped crazy bytecode and so this is the source of the segfault when a passed in string does not unmarshal to a code object of the obfuscated type and gets passed to <code>PyObject_Call</code>. However, we can use the function to unmarshal and exec the crazy code objects we extracted from <br />
 the binary and return their output upon execution.</p>
