@@ -54,7 +54,7 @@ body {
 }
 
 .wrap-header{
-	margin-top: 30px;
+	margin-top: 15px;
 }
 
 hr { 
@@ -476,7 +476,7 @@ nav.footer ul li:last-child a{
 }
 
 nav.footer ul li a:hover{
-	color: #cbcbcb;
+	color: #f10879;
 }
 
 
@@ -511,7 +511,7 @@ img, img.scale-with-grid {
 }
 
 .post-nav-left a:hover {
-	color: #cbcbcb;
+	color: #f10879;
 }
 
 .post-nav-right {
@@ -531,7 +531,7 @@ img, img.scale-with-grid {
 }
 
 .post-nav-right a:hover {
-	color: #cbcbcb;
+	color: #f10879;
 }
 
 

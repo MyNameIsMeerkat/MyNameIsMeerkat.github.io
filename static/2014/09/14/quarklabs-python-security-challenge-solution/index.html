@@ -1,15 +1,97 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[SIN-ACK]]></title><description><![CDATA[Rich's blog on security, tech and general deviance]]></description><link>http://sin-ack.co.uk/</link><generator>Ghost 0.5</generator><lastBuildDate>Tue, 23 Sep 2014 02:37:10 GMT</lastBuildDate><atom:link href="http://sin-ack.co.uk/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[QuarkLabs Python Security Challenge - Solution]]></title><description><![CDATA[<h2 id="overview">Overview</h2>
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
 
-<p>What follows is a walkthrough of the Python security challenge posed on <a href='http://blog.quarkslab.com/you-like-python-security-challenge-and-traveling-win-a-free-ticket-to-hitb-kul.html' >QuarkLabs</a> and the steps I took to complete it. There are likely many other routes to get to the same goal, what follows is just what occured to me as I drank 21st Amendment <em>Hell or High Watermelon</em></p>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>QuarkLabs Python Security Challenge - Solution</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<link rel="stylesheet" href="../../../../assets/css/base.css">
+	<link rel="stylesheet" href="../../../../assets/css/skeleton.css">
+	<link rel="stylesheet" href="../../../../assets/css/layout.css">
+	<link rel="stylesheet" href="../../../../assets/css/font-awesome.min.css">
+
+	<script src="../../../../assets/js/modernizer.min.js"></script>
+	<script src="../../../../assets/js/scale.fix.js"></script>
+	<script src="../../../../assets/js/hide-address-bar.js"></script>
+
+	<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+	
+	<link rel="shortcut icon" href="http://127.0.0.1:2368/assets/images/favicon.ico">
+	<link rel="apple-touch-icon" href="../../../../assets/images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="../../../../assets/images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="../../../../assets/images/apple-touch-icon-114x114.png">
+	
+    <meta name="generator" content="Ghost 0.5" />
+<link rel="alternate" type="application/rss+xml" title="SIN-ACK" href="../../../../rss/index.html">
+<link rel="canonical" href="http://sin-ack.co.uk/2014/09/14/quarklabs-python-security-challenge-solution/" />
+    
+</head>
+<body>
+
+<!-- Main Container -->
+<div class="container">
+		<!-- Header -->
+		<div class="twelve columns">
+			<div class="wrap-header">
+				<span class="logo-text"><a href="http://sin-ack.co.uk">SIN-ACK</a></span>
+				
+			<!-- Header Navigation For Static Pages -->	
+			<!-- Static Pages Navigation -->
+							
+			<nav class="nav primary">
+				<ul>
+					<!-- <li><a href="http://sin-ack.co.uk/about-us">about us</a></li> -->
+				</ul>
+			</nav>
+							
+				<!-- End Static Pages Navigation -->		<nav class="nav primary">
+	<ul>
+		<li><a href="https://github.com/MyNameIsMeerkat">code</a></li>
+		<li><a href="http://sin-ack.co.uk/about">about</a></li>
+	</ul>
+                        </nav>
+<br>	
+			</div>
+		</div>
+		<!-- End Header -->
+		
+		
+		
+		
+		<!-- Title -->
+		<div class="twelve columns">
+			<hr />
+			<h1 class="headline-95">QuarkLabs Python Security Challenge - Solution</h1>
+			<p class="byline">by Rich Smith on September 14, 2014</p>
+			<hr />
+		</div>
+		<!-- End Title -->
+
+		<!-- Post Content -->
+		<div class="twelve columns">
+			<h2 id="overview">Overview</h2>
+
+<p>What follows is a walkthrough of the Python security challenge posed on <a href="http://blog.quarkslab.com/you-like-python-security-challenge-and-traveling-win-a-free-ticket-to-hitb-kul.html">QuarkLabs</a> and the steps I took to complete it. There are likely many other routes to get to the same goal, what follows is just what occured to me as I drank 21st Amendment <em>Hell or High Watermelon</em></p>
 
 <p><center> <br />
-<img src='http://21st-amendment.com/assets/hhwatermelon_can-230x409.png'  alt="image" />
+<img src="http://21st-amendment.com/assets/hhwatermelon_can-230x409.png" alt="image" />
 </center></p>
 
 <h2 id="thelambdacomplex">The Lambda Complex</h2>
 
-<p>At the best of times <a href='http://www.diveintopython.net/power_of_introspection/lambda_functions.html' >lambdas</a> in  Python can be a headfuck, but the start to the challenge was designed to be a deliberate mess of lambda pain that looked like this:</p>
+<p>At the best of times <a href="http://www.diveintopython.net/power_of_introspection/lambda_functions.html">lambdas</a> in  Python can be a headfuck, but the start to the challenge was designed to be a deliberate mess of lambda pain that looked like this:</p>
 
 <pre><code class="prettyprint codelang-python">(lambda g, c, d: (lambda _: (_.__setitem__('$', ''.join([(_['chr'] if ('chr'
 in _) else chr)((_['_'] if ('_' in _) else _)) for _['_'] in (_['s'] if ('s'  
@@ -302,7 +384,7 @@ for guess in range(c, 10000):
 
 <p>(fig 17)</p>
 
-<p>Going to <a href="">blog.quarkslab.com/static/resources/b7d8438de09fffb12e3950e7ad4970a4a998403bdf3763dd4178adf</a> results in a file downloading.</p>
+<p>Going to <a href="index.html">blog.quarkslab.com/static/resources/b7d8438de09fffb12e3950e7ad4970a4a998403bdf3763dd4178adf</a> results in a file downloading.</p>
 
 <p>A pure Python equivilent of the transformations done by the lambda's follows to aid any understanding that is needed:</p>
 
@@ -387,7 +469,7 @@ exit_group(1)                           = ?
 
 <p>(fig 22)</p>
 
-<p>OK as expected with a Python runtime initialising it is looking for the <a href='https://docs.python.org/2/library/site.html' >site module</a>, specifically it is looking for it in the <code>lib/python2.7</code> subdirectory of where <code>PYTHONHOME</code> was set to be. Let's pop a empty <code>site.py</code> at that location and see if the mystery binary complains less:</p>
+<p>OK as expected with a Python runtime initialising it is looking for the <a href="https://docs.python.org/2/library/site.html">site module</a>, specifically it is looking for it in the <code>lib/python2.7</code> subdirectory of where <code>PYTHONHOME</code> was set to be. Let's pop a empty <code>site.py</code> at that location and see if the mystery binary complains less:</p>
 
 <pre><code class="prettyprint codelang-bash">$ ./b7d8438de09fffb12e3950e7ad4970a4a998403bdf3763dd4178adf
 Python 2.7.8+ (nvcs/newopcodes:a9bd62e4d5f2+, Sep  1 2014, 11:41:46)  
@@ -466,7 +548,7 @@ Segmentation fault
 <p>Hmmm, a segfault is far more indicative of something screwy in the C Python runtime than anything at the python language layer. This however didn't stop me from dicking around for 30 mins or so getting the <code>dis</code> and <code>pdb</code> modules (and the million dependency modules) copied over to <code>/tmp/quark/lib/python2.7/site-packages</code>. Interestingly the <code>itertools</code> module was not available or builtin to the binary so to satisfy some dependencies pure Python versions of some of the functions had to be <br />
 patched into the depending modules.  Once done I played around to see what <code>dis</code> could tell me about the <code>do_not_run_me</code> module. In short, jack shit.</p>
 
-<p>Right fuckit, let's jump into the binary itself - fire up IDA Pro or if you don't have that then <a href='http://www.hopperapp.com/' >Hopper</a> has a free trial.</p>
+<p>Right fuckit, let's jump into the binary itself - fire up IDA Pro or if you don't have that then <a href="http://www.hopperapp.com/">Hopper</a> has a free trial.</p>
 
 <p>Symbols hadn't been stripped so finding the code relating to the do<em>not</em>run_me module was pretty straightforward, a psuedo code example of them is below:</p>
 
@@ -498,7 +580,7 @@ patched into the depending modules.  Once done I played around to see what <code
 
 <p>(fig 31)</p>
 
-<p>The init code of <code>do_not_run_me</code> looks absolutely standard. The code associated with <code>run_me</code> shows the use of Python marshaling via the <code>PyMarshal_ReadObjectFromString()</code> function  (docs here <a href="">https://docs.python.org/2/c-api/marshal.html</a>) of two strings referenced as <code>incr.9351</code> and <code>decr.9357</code>.</p>
+<p>The init code of <code>do_not_run_me</code> looks absolutely standard. The code associated with <code>run_me</code> shows the use of Python marshaling via the <code>PyMarshal_ReadObjectFromString()</code> function  (docs here <a href="index.html">https://docs.python.org/2/c-api/marshal.html</a>) of two strings referenced as <code>incr.9351</code> and <code>decr.9357</code>.</p>
 
 <p>Looking in the binary the two blobs of data that are referenced as <code>incr.9351</code> and <code>decr.9357</code> can be easily found and carved out,  they are shown below in their Python hex string form:</p>
 
@@ -701,7 +783,7 @@ NameError: global name 'quarkslab' is not defined
 <p>Revel in it's glory:</p>
 
 <iframe width="420" height="315"  
-src='http://www.youtube.com/embed/sf0tYs5U5RI'  frameborder="0"  
+src="http://www.youtube.com/embed/sf0tYs5U5RI" frameborder="0"  
 allowfullscreen></iframe>
 
 <h2 id="footnotes">Footnotes</h2>
@@ -710,8 +792,75 @@ allowfullscreen></iframe>
 
 <p>Big thanks to the Quarkslab folks for creating a fun Python focussed challenge.</p>
 
-<p>If you find mistakes in the above let me know and I'll try and correct them.</p>]]></description><link>http://sin-ack.co.uk/2014/09/14/quarklabs-python-security-challenge-solution/</link><guid isPermaLink="false">07a887a4-7276-447c-b283-68af0d00976b</guid><dc:creator><![CDATA[Rich Smith]]></dc:creator><pubDate>Sun, 14 Sep 2014 20:37:21 GMT</pubDate></item><item><title><![CDATA[New Blog]]></title><description><![CDATA[<p>This is a new home where I will be sharing bits and peices such as conference presentations and explanations about any code released as open source.</p>
+<p>If you find mistakes in the above let me know and I'll try and correct them.</p>
+		</div>
+		<!-- End Post Content -->
 
-<p>I am legendarily bad at keeping such things up to date so fingers crossed I will actually get into good habbits!</p>
+				<!-- Share Icons -->
+				<div class="twelve columns">
+					<ul class="share-icons">
+					<li>
+					<a class="icon-twitter" href="http://twitter.com/share?text=QuarkLabs%20Python%20Security%20Challenge%20-%20Solution&url=http://sin-ack.co.uk/2014/09/14/quarklabs-python-security-challenge-solution/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fa fa-twitter fa-2x fa-fw"></i></a>
+					<a href="http://www.facebook.com/sharer.php?u=http://sin-ack.co.uk/2014/09/14/quarklabs-python-security-challenge-solution/" target="_blank"><i class="fa fa-facebook fa-2x fa-fw icon-white"></i></a>
+					<!-- <a href="http://www.github.com" target="_blank"><i class="fa fa-github fa-2x fa-fw icon-white"></i></a></li> -->
+					</ul>
+				</div>
+				<!-- End Share Icons -->		
+				<!-- Author Box -->
+				<div class="twelve columns">
+				<section class="author-box">
+		            <div class="author-image">
+		                <div class="author-image-inner" style="background-image: url(../../../../content/images/2014/Jul/rich_head.png);"></div> 
+		            </div>
+		            <div class="author-bio">
+		                <div class="author-name">Rich Smith</div>
+		                <div class="author-bio-text">Director of Security @Etsy //
+		Co-Founder @theSyndis //
+		International Vagabond &amp; Miscreant</div>
+					</div>
+		        </section>
+				</div>
+				<!-- End Author Box -->		
+		<!-- <div class="twelve columns">
 
-<p>Time will tell .....</p>]]></description><link>http://sin-ack.co.uk/2014/08/31/new-blog-2/</link><guid isPermaLink="false">68f80301-828a-468a-96ff-f7a89c22843e</guid><dc:creator><![CDATA[Rich Smith]]></dc:creator><pubDate>Sun, 31 Aug 2014 17:09:24 GMT</pubDate></item></channel></rss>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'yourdisqussshortname'; // required: replace example with your forum shortname
+    var disqus_identifier = ''; // make sure to use the post.id as an identifier, otherwise disqus will use the pages url per default, which might be problematic...
+ 
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</div>
+ -->
+		
+		<div class="twelve columns">
+		<hr />
+		</div>
+		
+
+		
+		
+
+
+		
+</div>
+<!-- End Main Container -->
+
+
+    <script src="../../../../public/jquery.js?v=8e53c28152"></script>
+	
+	<!-- End Document
+================================================== -->
+</body>
+</html>
+		
+		
+		
