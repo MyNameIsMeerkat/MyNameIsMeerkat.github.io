@@ -1,5 +1,805 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[SIN-ACK]]></title><description><![CDATA[Rich's blog on security, tech and general deviance]]></description><link>http://sin-ack.co.uk/</link><generator>Ghost 0.5</generator><lastBuildDate>Sun, 31 Aug 2014 17:10:27 GMT</lastBuildDate><atom:link href="http://sin-ack.co.uk/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[New Blog]]></title><description><![CDATA[<p>This is a new home where I will be sharing bits and peices such as conference presentations and explanations about any code released as open source.</p>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[SIN-ACK]]></title><description><![CDATA[Rich's blog on security, tech and general deviance]]></description><link>http://sin-ack.co.uk/</link><generator>Ghost 0.5</generator><lastBuildDate>Sat, 23 May 2015 20:49:03 GMT</lastBuildDate><atom:link href="http://sin-ack.co.uk/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Crafting an Effective Security Organisation - KiwiCon and WrongIslandCon]]></title><description><![CDATA[<p><center> <br />
+<img src='http://i.imgur.com/K6vLPQ8.png'  alt="KiwiCon Logo" />
+</center></p>
+
+<h2 id="overview">Overview</h2>
+
+<p>I'm writing this post while sunning myself on the Coromandel Peninsula of New Zealand, sitting on my balcony overlooking the harbour. A hard life I know, but given the positive reaction to the talk I gave at <a href='https://kiwicon.org/' >KiwiCon 8</a> I wanted to share the slides online before waiting until I was back in NYC.</p>
+
+<p>Overall the combination of <a href='https://wrongisland.org/' >WrongIslandCon's</a> inaugural happening, along with KiwiCon's 8th appearance, made the trip the most enjoyable and fulfilling conferences I have done for the whole of 2014. I can't think of a better way to close out the year before the holidays take hold.</p>
+
+<p>Anyway, on with a few thoughts on both these great cons.</p>
+
+<h2 id="wrongislandcon">Wrong Island Con</h2>
+
+<p>For those unaware New Zealand is a country of two lands, the aptly named North and South Islands. KiwiCon takes place in Wellington which is on the Southern tip of the North Island, meaning the only logical thing to do is to run a prequel conference in Christchurch on the South Island! (Truth be told there is some deeper mythology at play to do with WIC but that is definitely better left to <a href='https://twitter.com/rich0H' >Rich0H</a> to explain over a pint).</p>
+
+<p>Organised on a shoestring by <a href='https://twitter.com/rich0H' >Rich0H</a> this was a small event where a number of lightning talks took place all whilst drinking a variety of great beers from the <a href='http://www.thetwistedho.co.nz/' >The Twisted Hop</a>. What could be better?!  </p>
+
+<p>I landed in Christchurch from NYC a day late and an hour or so before the con started due to United's inability to have a flight leave from JFK on time (seriously United, 50+ hours for the journey? I hate that you get my money.... ). Still despite United's best effort I made it in time for the first talk, and even with some capacity for semi articulate speech.</p>
+
+<p>The content discussed varied across a pretty wide spectrum of topics from my talk about the security shortcomings of the TR-69 protocol and the flaws of implementation, to some deep EFI shenanigans, much Bluetooth hilarity, to how to steal children’s RC toys wirelessly, and all the way to preventing APT in 5mins by guest speaker <a href='https://twitter.com/liamosaur' >Liamosaur</a> - That's 'Anterior Pelvic Tilt' incase you were wondering and thought someone had found a way to derail the FUD inducing marketing machine that is Mandiant. Unfortunately I guess that shit show will rumble on until they find another acronym to extract dollars from ...... </p>
+
+<p>Anyway, do yourself a favour and check out the <a href='https://wrongisland.org/' >WrongIslandCon's</a> website for a list of speakers, topics and maybe even slides if we get ourselves together enough to make them available.</p>
+
+<p>While small Wrong Island Con can not be slated as anything other than a resounding success with most everyone hoping it will happen again next year. If in doubt be sure to ask <a href='https://twitter.com/rich0H' >Rich0H</a> when it will be taking place, he closed out the con with a specific request that if people were wondering about next year then they should definitely <strong>definitely</strong> ask him ;)</p>
+
+<p>Mention should also go to <a href='https://hackerone.com/' >HackerOne</a>, <a href='https://www.insomniasec.com/' >Insomnia Sec</a> and <a href='https://greatscottgadgets.com/' >Great Scott Gadgets</a> who sponsored the con and picked up the tabs for all the thirsty speakers and hackers!</p>
+
+<h2 id="kiwicon8">KiwiCon 8</h2>
+
+<p>After a short but enjoyable stay in Christchurch it was a hop over to Wellington to get set for KiwiCon8. Having never been to NZ before and only knowing a handful of the folks in the local hacking scene I wasn't 100% sure what to expect, but from the first minute it was clear this was going to be both a hugely friendly and ego free con that was about fun and knowledge sharing rather than peacocking and sales pitches.</p>
+
+<p>One of the first things I noticed on day 1 of KiwiCon was the big mixture of people in the attendees. This was not your normal 'hacker mix' (though there was good representation of that for sure), it really was a cross section of people interested in technology and the potential security implications that are finding there ways increasingly into their everyday lives. For example for the opening remarks and keynote I was sat behind what appeared to be a mum, dad and daughter (outfitted in 8 bit style with hair bows and a Minecraft pick axe). Upon a quick conversation with them, this was indeed the case and when I asked <em>what brings you here?</em> the answer of <em>we're just interested in finding more about this hacking stuff, we know we don't know enough about it</em> only confirmed my initial thoughts that KiwiCon is something special among hacker cons.</p>
+
+<p>Single track cons are my favourite. Single track cons in a beautiful historic theatre are even better. Those that combine all of this with a stage set up that includes a Delorian, a sheep containing beer, and a llama ...... I'm lost for words.</p>
+
+<p>The talks covered a great range of topics over the 2 days and I won't do the injustice of trying to summarise them all here, just do yourself the favour and go to the KiwiCon <a href='https://kiwicon.org/' >website</a> to see what was being presented and track down slides from the ones that interest you.</p>
+
+<p>As for my talk, I was genuinely surprised by the super positive reaction it got and the great conversations it generated in the hallway track afterwards. This all in addition to one slide in particular that seemed to resonate with people and generate more <a href='https://twitter.com/hypatiadotca/status/542870405514801152' >buzz</a> than I expected (and yes that <em>is</em> a sheep in a tophat. Don't ask.....)</p>
+
+<p><center> <br />
+<img src='https://pbs.twimg.com/media/B4ipoK-CcAAf_ZS.jpg'  alt="Don't hire assholes" />
+</center></p>
+
+<p>I assumed the rule of <em>Not hiring assholes</em> was a pretty standard one that everyone would see as obvious, however it seems having it on a 50' screen rallies people to it's cause and triggers a twitter chain reactions - no bad thing in my eyes if I'm honest.</p>
+
+<p>It was pleasantly reaffirming to be at a conference where there were a number of talks about security culture, how to make it better, and how to ensure a focus on people and not just technology to try and create a more secure environment. I'm not sure if this was intentional by the organisers or just came about organically with many people begin to share the same concerns as myself? Regardless, it was great to be a part of and I very much hope it's a theme that continues to be present in other hacker cons.</p>
+
+<p>In a word KiwiCon 8 managed to fire me up as to how great a con can be without having to pander to vendor halls, paid for presentations, and ambulance chasing the latest bug with a fancy brand name and swish logo. </p>
+
+<p>To the organisers I have nothing but admiration and congratulations, just hands down a fantastic job. I'm counting down the days until the next KiwiCon as I cannot wait to see what next year has in store and I will do my very best to be there to witness, despite what United may try to throw my way.</p>
+
+<h2 id="badges">Badges</h2>
+
+<p>A blog post about these two awesome cons would in no way be complete without a mention of the badges!</p>
+
+<p>The Wrong Island Con badges were a piece of 3D printed tactile magic that is sure to stay on my desk and be fiddled with for months to come. Really fun and seemingly loved by all recipients.</p>
+
+<p>The KiwiCon badges, in keeping with the retro 80's theme of this years con, were a range of audio cassettes for attendees and Betamax tapes for speakers :) In a word <strong>AWESOME!!</strong></p>
+
+<p><img src='https://pbs.twimg.com/media/B4ddAfUCUAEWAZm.jpg:large'  alt="KiwiCon 8 Badge" /></p>
+
+<p>The audio cassettes also contained a badge challenge of an encoded C64 program, a few enterprising attendees went all out and completed the challenge in style - if I find a writeup of their solutions then I'll be sure to link them here as they were really neat.</p>
+
+<h2 id="slides">Slides</h2>
+
+<p>So for the kind folks who have been asking for them the slides from my talk are shared on my speaker deck <a href='https://speakerdeck.com/iodboi/crafting-an-effective-security-organisation' >How to Craft an Effective Security Organisation</a>.</p>
+
+<p>If anyone has questions or comments please feel free to hit me up on the <a href='https://twitter.com/iodboi' >Twitters</a>.</p>
+
+<h2 id="otherarticles">Other Articles</h2>
+
+<p>Finally there were a couple of real journalists who can actually string coherent sentences together (unlike myself) and they wrote some articles that included some of the topics from my KiwiCon presentation. Their KiwiCon related articles and can be found below:</p>
+
+<ul>
+<li><a href='http://www.theregister.co.uk/2014/12/12/etsy_security_dont_hire_assholes/' >Craft bazaar Etsy's security plan is candy to get devs talking</a> by <a href='https://twitter.com/darrenpauli' >Darren Pauli</a></li>
+<li><a href='http://thewireless.co.nz/articles/changing-the-culture-of-the-hackers' >Changing the culture of the hackers</a> by <a href='https://twitter.com/meganjwhelan' >Megan Whelan</a></li>
+</ul>]]></description><link>http://sin-ack.co.uk/2014/12/19/crafting-an-effective-security-organisation/</link><guid isPermaLink="false">53211e31-1017-44d1-9609-60a2953b5905</guid><dc:creator><![CDATA[Rich Smith]]></dc:creator><pubDate>Sat, 20 Dec 2014 04:59:44 GMT</pubDate></item><item><title><![CDATA[Continuously Deploying Culture at Etsy - Agile Iceland]]></title><description><![CDATA[<p><center> <br />
+<img src='http://www.cruzine.com/wp-content/uploads/2010/08/148-wild-nature-landscapes.jpg'  alt="image" />
+</center></p>
+
+<p>I've just come back from a flying visit back to Iceland where I had been invited to give a talk at <a href='http://http//www.agileisland.is' >Agile Ísland</a>. In an effort to actually keep this blog somewhat up to date below are links to the slides and such like.</p>
+
+<p>This was a great 1 day conference full of friendly enthusiastic people which concluded with an <a href='http://www.mindview.net/Conferences/ProgrammingTheNewWeb' >Open Space</a> session. This was the first time I had participated in an 'Open Space' at a conference and I found it to be a great way to allow free interaction with other attendees with slightly more direction than the usual 'hallway track'. Definitely a structure I would participate in at other conferences in future. Overall <a href='http://http//www.agileisland.is' >Agile Ísland</a> was a good small conference and well recommended to others in future.</p>
+
+<p>I managed to also catch the first evening of Iceland Airwaves, and most importantly my good friends <a href='http://rokkurro.com/' >Rökkurró</a> in their first off venue show at 12 Tónar showing off songs from their new album INNRA. Check them out as they are amazing.</p>
+
+<p>The slides for the talk can be found <a href='http://www.slideshare.net/iodboi/contiuously-deploying-culture-20-agile-sland' >here</a>.</p>
+
+<p>.out</p>]]></description><link>http://sin-ack.co.uk/2014/11/08/continuously-deploying-culture-at-etsy-agile-iceland/</link><guid isPermaLink="false">c94ddacb-4172-4e22-b86d-24a89495a3f0</guid><dc:creator><![CDATA[Rich Smith]]></dc:creator><pubDate>Sat, 08 Nov 2014 23:09:31 GMT</pubDate></item><item><title><![CDATA[QuarkLabs Python Security Challenge - Solution]]></title><description><![CDATA[<h2 id="overview">Overview</h2>
+
+<p>What follows is a walkthrough of the Python security challenge posed on <a href='http://blog.quarkslab.com/you-like-python-security-challenge-and-traveling-win-a-free-ticket-to-hitb-kul.html' >QuarkLabs</a> and the steps I took to complete it. There are likely many other routes to get to the same goal, what follows is just what occured to me as I drank 21st Amendment <em>Hell or High Watermelon</em></p>
+
+<p><center> <br />
+<img src='http://21st-amendment.com/assets/hhwatermelon_can-230x409.png'  alt="image" />
+</center></p>
+
+<h2 id="thelambdacomplex">The Lambda Complex</h2>
+
+<p>At the best of times <a href='http://www.diveintopython.net/power_of_introspection/lambda_functions.html' >lambdas</a> in  Python can be a headfuck, but the start to the challenge was designed to be a deliberate mess of lambda pain that looked like this:</p>
+
+<pre><code class="prettyprint codelang-python">(lambda g, c, d: (lambda _: (_.__setitem__('$', ''.join([(_['chr'] if ('chr'
+in _) else chr)((_['_'] if ('_' in _) else _)) for _['_'] in (_['s'] if ('s'  
+in _) else s)[::(-1)]])), _)[-1])( (lambda _: (lambda f, _: f(f, _))((lambda  
+__,_: ((lambda _: __(__, _))((lambda _: (_.__setitem__('i', ((_['i'] if ('i'  
+in _) else i) + 1)),_)[(-1)])((lambda _: (_.__setitem__('s',((_['s'] if ('s'  
+in _) else s) + [((_['l'] if ('l' in _) else l)[(_['i'] if ('i' in _) else i  
+)] ^ (_['c'] if ('c' in _) else c))])), _)[-1])(_))) if (((_['g'] if ('g' in
+_) else g) % 4) and ((_['i'] if ('i' in _) else i)&lt; (_['len'] if ('len' in _  
+) else len)((_['l'] if ('l' in _) else l)))) else _)), _) ) ( (lambda _: (_.
+__setitem__('!', []), _.__setitem__('s', _['!']), _)[(-1)] ) ((lambda _: (_.  
+__setitem__('!', ((_['d'] if ('d' in _) else d) ^ (_['d'] if ('d' in _) else  
+d))), _.__setitem__('i', _['!']), _)[(-1)])((lambda _: (_.__setitem__('!', [  
+(_['j'] if ('j' in _) else j) for  _[ 'i'] in (_['zip'] if ('zip' in _) else
+zip)((_['l0'] if ('l0' in _) else l0), (_['l1'] if ('l1' in _) else l1)) for  
+_['j'] in (_['i'] if ('i' in _) else i)]), _.__setitem__('l', _['!']), _)[-1  
+])((lambda _: (_.__setitem__('!', [1373, 1281, 1288, 1373, 1290, 1294, 1375,
+1371,1289, 1281, 1280, 1293, 1289, 1280, 1373, 1294, 1289, 1280, 1372, 1288,  
+1375,1375, 1289, 1373, 1290, 1281, 1294, 1302, 1372, 1355, 1366, 1372, 1302,  
+1360, 1368, 1354, 1364, 1370, 1371, 1365, 1362, 1368, 1352, 1374, 1365, 1302  
+]), _.__setitem__('l1',_['!']), _)[-1])((lambda _: (_.__setitem__('!',[1375,
+1368, 1294, 1293, 1373, 1295, 1290, 1373, 1290, 1293, 1280, 1368, 1368,1294,  
+1293, 1368, 1372, 1292, 1290, 1291, 1371, 1375, 1280, 1372, 1281, 1293,1373,  
+1371, 1354, 1370, 1356, 1354, 1355, 1370, 1357, 1357, 1302, 1366, 1303,1368,  
+1354, 1355, 1356, 1303, 1366, 1371]), _.__setitem__('l0', _['!']), _)[(-1)])  
+            ({ 'g': g, 'c': c, 'd': d, '$': None})))))))['$'])
+</code></pre>
+
+<p>(fig 1)</p>
+
+<p>So on quick inspection of the mess we can see that the outermost lambda takes in three values <code>g</code>, <code>c</code> and <code>d</code> and returns the <code>'$'</code> element of a dictionary. Inbetween that a lot of nested function calls take place. <br />
+In an effort to understand WTF is going on in the mess let's break out the lambdas and allow ourselves to work through them one at a time. Given that each lambda is taking the result of the next lambda it makes sense to start at the inner most lambda and work our way backwards (out) from there.</p>
+
+<p>The starting point is the establishment of dictionary object using the values passed into the outmost object (whatever they end up being), all very straight forward:</p>
+
+<pre><code class="prettyprint codelang-python">{ 'g': g, 'c': c, 'd': d, '$': None}
+</code></pre>
+
+<p>(fig 2)</p>
+
+<p>Next come a couple fairly straight forward lambdas that add in extra values to the starting dictionary:</p>
+
+<pre><code class="prettyprint codelang-python">lambda _: (_.__setitem__('!',[1375,  
+1368, 1294, 1293, 1373, 1295, 1290, 1373, 1290, 1293, 1280, 1368, 1368,1294,  
+1293, 1368, 1372, 1292, 1290, 1291, 1371, 1375, 1280, 1372, 1281, 1293,1373,  
+1371, 1354, 1370, 1356, 1354, 1355, 1370, 1357, 1357, 1302, 1366, 1303,1368,  
+1354, 1355, 1356, 1303, 1366, 1371]), _.__setitem__('l0', _['!']), _)[(-1)]  
+</code></pre>
+
+<p>(fig 3)</p>
+
+<p>For those not super fluent in lambdas (yet!) this takes in a variable named <code>_</code> as it's argument and then proceeds to call the <code>__setitem__</code> method on it, showing us that <code>_</code> is a dictionry object and that initially the key <code>'!'</code> is being set to a list of integers, which is then itself finally reassigned to the key <code>'l0'</code>. At the end of this our dictionary looks like:</p>
+
+<pre><code class="prettyprint codelang-python">{ 'g': g,
+'c': c,  
+'d': d,  
+'$': None,  
+'!': [1375,  
+1368, 1294, 1293, 1373, 1295, 1290, 1373, 1290, 1293, 1280, 1368, 1368,1294,  
+1293, 1368, 1372, 1292, 1290, 1291, 1371, 1375, 1280, 1372, 1281, 1293,1373,  
+1371, 1354, 1370, 1356, 1354, 1355, 1370, 1357, 1357, 1302, 1366, 1303,1368,  
+1354, 1355, 1356, 1303, 1366, 1371],  
+'l0': [1375,  
+1368, 1294, 1293, 1373, 1295, 1290, 1373, 1290, 1293, 1280, 1368, 1368,1294,  
+1293, 1368, 1372, 1292, 1290, 1291, 1371, 1375, 1280, 1372, 1281, 1293,1373,  
+1371, 1354, 1370, 1356, 1354, 1355, 1370, 1357, 1357, 1302, 1366, 1303,1368,  
+1354, 1355, 1356, 1303, 1366, 1371] }  
+</code></pre>
+
+<p>(fig 4)</p>
+
+<p>The next lambda looks very similar and does much the same:</p>
+
+<pre><code class="prettyprint codelang-python">lambda _: (_.__setitem__('!', [1373, 1281, 1288, 1373, 1290, 1294, 1375,  
+1371,1289, 1281, 1280, 1293, 1289, 1280, 1373, 1294, 1289, 1280, 1372, 1288,  
+1375,1375, 1289, 1373, 1290, 1281, 1294, 1302, 1372, 1355, 1366, 1372, 1302,  
+1360, 1368, 1354, 1364, 1370, 1371, 1365, 1362, 1368, 1352, 1374, 1365, 1302  
+]), _.__setitem__('l1',_['!']), _)[-1]
+</code></pre>
+
+<p>(fig 5)</p>
+
+<p>The only difference this time is the lambda takes the dictioary output from the previous lambda (fig4) as it's input and then overwrites the <code>'!'</code> element with a new list of integers which then gets reassigned to the <code>'l1'</code> element. The dictionary now looks like:</p>
+
+<pre><code class="prettyprint codelang-python">{ 'g': g,
+'c': c,  
+'d': d,  
+'$': None,  
+'!': [1373, 1281, 1288, 1373, 1290, 1294, 1375,  
+1371,1289, 1281, 1280, 1293, 1289, 1280, 1373, 1294, 1289, 1280, 1372, 1288,  
+1375,1375, 1289, 1373, 1290, 1281, 1294, 1302, 1372, 1355, 1366, 1372, 1302,  
+1360, 1368, 1354, 1364, 1370, 1371, 1365, 1362, 1368, 1352, 1374, 1365, 1302  
+],
+'l0': [1375,  
+1368, 1294, 1293, 1373, 1295, 1290, 1373, 1290, 1293, 1280, 1368, 1368,1294,  
+1293, 1368, 1372, 1292, 1290, 1291, 1371, 1375, 1280, 1372, 1281, 1293,1373,  
+1371, 1354, 1370, 1356, 1354, 1355, 1370, 1357, 1357, 1302, 1366, 1303,1368,  
+1354, 1355, 1356, 1303, 1366, 1371],  
+'l1' : [1373, 1281, 1288, 1373, 1290, 1294, 1375,  
+1371,1289, 1281, 1280, 1293, 1289, 1280, 1373, 1294, 1289, 1280, 1372, 1288,  
+1375,1375, 1289, 1373, 1290, 1281, 1294, 1302, 1372, 1355, 1366, 1372, 1302,  
+1360, 1368, 1354, 1364, 1370, 1371, 1365, 1362, 1368, 1352, 1374, 1365, 1302  
+] }
+</code></pre>
+
+<p>(fig 6)</p>
+
+<p>The third lambda is a little more complex than the previous two but introduces some conventions seen in the rest of the lambdas that are worth understanding. It looks like this (whitespace added for clarity):</p>
+
+<pre><code class="prettyprint codelang-python">lambda _: (_.__setitem__('!', [ (_['j'] if ('j' in _) else j)  
+    for _[ 'i'] in (_['zip'] if ('zip' in _) else zip)
+((_['l0'] if ('l0' in _) else l0), (_['l1'] if ('l1' in _) else l1))
+for _['j'] in (_['i']  
+               if ('i' in _) else i)]
+
+), _.__setitem__('l', _['!']), _)[-1]
+</code></pre>
+
+<p>(fig 7)</p>
+
+<p>We again see elements of the input dictionary <code>_</code> being set but now there are a bunch of <code>if</code>, <code>else</code> and <code>for</code> keywords present. While logically these act as you would expect their syntax differs slightly from that which you see such functions used outside of a lambda.</p>
+
+<p>The first construct you will see repeated in the rest of the lambdas is:</p>
+
+<pre><code class="prettyprint codelang-python">(_['j'] if ('j' in _) else j
+</code></pre>
+
+<p>(fig 8)</p>
+
+<p>All this is really doing is looking for the presence of a key in a dictionary and returning one of two results based on whetehr the key is there or not, it's somewhat equivilent to the <code>get</code> method on a dictionary with the optional default argument. We then hit a for loop:</p>
+
+<pre><code class="prettyprint codelang-python">for _[ 'i'] in (_['zip'] if ('zip' in _) else zip)  
+</code></pre>
+
+<p>(fig 9)</p>
+
+<p>This uses the above <em>check for key in dictionary</em> <code>if</code> logic to set the <code>zip</code> function (there is no key named <code>'zip'</code> so the <code>zip</code> function is returned). Once we follow this and the next <code>for</code> loops through we end up setting yet another key in the dictionary, this time named <code>'l'</code> that has the value of the lists from <code>'l0'</code> and <code>'l1'</code> combined into a single list. The dictionary now looks like:</p>
+
+<pre><code class="prettyprint codelang-python">{ 'g': g,
+'c': c,  
+'d': d,  
+'$': None,  
+'!': [1375, 1373, 1368, 1281, 1294, 1288, 1293, 1373, 1373, 1290, 1295,  
+1294, 1290, 1375, 1373, 1371, 1290, 1289, 1293, 1281, 1280, 1280, 1368,  
+1293, 1368, 1289, 1294, 1280, 1293, 1373, 1368, 1294, 1372, 1289, 1292,  
+1280, 1290, 1372, 1291, 1288, 1371, 1375, 1375, 1375, 1280, 1289, 1372,  
+1373, 1281, 1290, 1293, 1281, 1373, 1294, 1371, 1302, 1354, 1372, 1370,  
+1355, 1356, 1366, 1354, 1372, 1355, 1302, 1370, 1360, 1357, 1368, 1357,  
+1354, 1302, 1364, 1366, 1370, 1303, 1371, 1368, 1365, 1354, 1362, 1355,  
+1368, 1356, 1352, 1303, 1374, 1366, 1365, 1371, 1302],  
+'l0': [1375,  
+1368, 1294, 1293, 1373, 1295, 1290, 1373, 1290, 1293, 1280, 1368, 1368,1294,  
+1293, 1368, 1372, 1292, 1290, 1291, 1371, 1375, 1280, 1372, 1281, 1293,1373,  
+1371, 1354, 1370, 1356, 1354, 1355, 1370, 1357, 1357, 1302, 1366, 1303,1368,  
+1354, 1355, 1356, 1303, 1366, 1371],  
+'l1' : [1373, 1281, 1288, 1373, 1290, 1294, 1375,  
+1371,1289, 1281, 1280, 1293, 1289, 1280, 1373, 1294, 1289, 1280, 1372, 1288,  
+1375,1375, 1289, 1373, 1290, 1281, 1294, 1302, 1372, 1355, 1366, 1372, 1302,  
+1360, 1368, 1354, 1364, 1370, 1371, 1365, 1362, 1368, 1352, 1374, 1365, 1302  
+],
+i     (1371, 1302)  
+j     1302  
+l     [1375, 1373, 1368, 1281, 1294, 1288, 1293, 1373, 1373, 1290, 1295,  
+1294, 1290, 1375, 1373, 1371, 1290, 1289, 1293, 1281, 1280, 1280, 1368,  
+1293, 1368, 1289, 1294, 1280, 1293, 1373, 1368, 1294, 1372, 1289, 1292,  
+1280, 1290, 1372, 1291, 1288, 1371, 1375, 1375, 1375, 1280, 1289, 1372,  
+1373, 1281, 1290, 1293, 1281, 1373, 1294, 1371, 1302, 1354, 1372, 1370,  
+1355, 1356, 1366, 1354, 1372, 1355, 1302, 1370, 1360, 1357, 1368, 1357,  
+1354, 1302, 1364, 1366, 1370, 1303, 1371, 1368, 1365, 1354, 1362, 1355,  
+1368, 1356, 1352, 1303, 1374, 1366, 1365, 1371, 1302] }  
+</code></pre>
+
+<p>(fig 10)</p>
+
+<p>The follwoing lambda is the first time we see any of the variables (<code>g</code>, <code>c</code>, <code>d</code>) that are passed into the outer most lambda being referenced. This lambda XOR's (<code>^</code>) the value of <code>d</code> with itself. Obvioulsy any number XOR'd with itself just returns 0. This means that the value of the <code>d</code> variable can just be any integer and the <code>'i'</code> key in the dictionary will get set to 0.</p>
+
+<pre><code class="prettyprint codelang-python">lambda _: (_.__setitem__('!',  
+                             ((_['d'] if ('d' in _) else d)
+                              ^ (_['d'] if ('d' in _) else d))
+), _.__setitem__('i', _['!']), _)[(-1)]
+</code></pre>
+
+<p>(fig 11)</p>
+
+<p>The next lambda is the simplest yet, just adding a new element to the dictionary <code>'s'</code> and assigning it a value of an empty list (via the <code>'!'</code> element like all previous lambdas).</p>
+
+<pre><code class="prettyprint codelang-python">lambda _: (_.__setitem__('!', []), _.__setitem__('s', _['!']), _)[(-1)]  
+</code></pre>
+
+<p>(fig 12)</p>
+
+<p>The next lambda is a nested set of other lambdas and is a bit more involved, it is shown below and I've tried to shift the formatting a little to break it into more discrete chunks:</p>
+
+<pre><code class="prettyprint codelang-python">lambda _: (lambda f, _: f(f, _))  
+((lambda ZZ,_: ((lambda _: ZZ(ZZ, _))
+((lambda _: (_.__setitem__('i', ((_['i'] if ('i' in _) else i) +
+1)),_)[(-1)])
+
+((lambda _: (_.__setitem__('s',
+            ((_['s'] if ('s' in _) else s) + [((_['l'] if ('l' in _)
+else l)[(_['i'] if ('i' in _) else i)] ^ (_['c'] if ('c' in _) else  
+c))])), _)[-1])(_)))
+
+ if (((_['g'] if ('g' in
+_) else g) % 4) and ((_['i'] if ('i' in _) else i)&lt; (_['len'] if ('len' in _  
+) else len)((_['l'] if ('l' in _) else l)))) else _)), _)
+</code></pre>
+
+<p>(fig 13)</p>
+
+<p>Walking through this we again see alot of the same conditional checks for keys in the dictionary, the <code>'i'</code> value is then used as an iterator to walk through the values in the list <code>'l'</code> from the dictionary and perform a mathematical operation on them.</p>
+
+<p>First each item in the <code>'l'</code> list is XOR'd (<code>^</code>) with the value held in the <code>c</code> variable and puts the result in a list in the <code>'s'</code> key.</p>
+
+<p>Next the <code>g</code> variable is referenced from the dictionary and is subject to a modulo 4 operation:</p>
+
+<pre><code class="prettyprint codelang-python">if (((_['g'] if ('g' in _) else g) % 4)  
+</code></pre>
+
+<p>(fig 14)</p>
+
+<p>This condition means that for the iteration loop to continue the expression in fig 13 needs to return a non-zero value, which means the value of <code>g</code> can be any value as long as it is <strong>not</strong> a multiple of 4.</p>
+
+<p>So at this point we know <code>d</code> can be any integer and <code>g</code> can be any integer that is not a multiple of 4. The task is to find out what the correct value of <code>c</code> should be so that when it's XOR'd against the values in the list <code>l</code> it should produce the correct result.</p>
+
+<p>The final lambda walks through the list produced in the previous lambda and stored in the <code>'s'</code> key and takes the <code>chr()</code> representation of the integers and joins them into a string and stores this in the <code>'$'</code> key. With the right value of <code>c</code> this should be our magic string.</p>
+
+<pre><code class="prettyprint codelang-python">lambda _: (_.__setitem__('$', ''.join([(_['chr']  
+                        if ('chr' in _)else chr)
+ ((_['_'] if ('_' in _) else _)) for _['_'] in (_['s'] if ('s'
+in _) else s)[::(-1)]])), _)[-1]
+</code></pre>
+
+<p>(fig 15)</p>
+
+<h2 id="findingtheexit">Finding The Exit</h2>
+
+<p>OK we made our way through the lambda complex, we understand the operations that take place on the lists of integers contained within the first 2 lambdas and we know the values needed for 2 of the input variables (<code>g</code>, <code>d</code>). The singular unknown is the value needed for <code>c</code> that when XOR'd with the values in the list produces a meaningful string.</p>
+
+<p>Being a man of limited mathematical genius I opted to just try lots of values of <code>c</code> and see what they produced and if anything looked like the secret URL. We just need to add a little extra logic around the lambdas to walk through guess for the value of <code>c</code> and see what strings are returned. This is shown below:</p>
+
+<pre><code class="prettyprint codelang-python">quark = (lambda g, c, d: (lambda _: (_.__setitem__('$',  
+''.join([(_['chr'] if ('chr'  
+in _) else chr)((_['_'] if ('_' in _) else _)) for _['_'] in (_['s'] if ('s'  
+in _) else s)[::(-1)]])), _)[-1])( (lambda _: (lambda f, _: f(f, _))((lambda  
+__,_: ((lambda _: __(__, _))((lambda _: (_.__setitem__('i', ((_['i'] if ('i'  
+in _) else i) + 1)),_)[(-1)])((lambda _: (_.__setitem__('s',((_['s'] if ('s'  
+in _) else s) + [((_['l'] if ('l' in _) else l)[(_['i'] if ('i' in _) else i  
+)] ^ (_['c'] if ('c' in _) else c))])), _)[-1])(_))) if (((_['g'] if ('g' in
+_) else g) % 4) and ((_['i'] if ('i' in _) else i)&lt; (_['len'] if ('len' in _  
+) else len)((_['l'] if ('l' in _) else l)))) else _)), _) ) ( (lambda _: (_.
+__setitem__('!', []), _.__setitem__('s', _['!']), _)[(-1)] ) ((lambda _: (_.  
+__setitem__('!', ((_['d'] if ('d' in _) else d) ^ (_['d'] if ('d' in _) else  
+d))), _.__setitem__('i', _['!']), _)[(-1)])((lambda _: (_.__setitem__('!', [  
+(_['j'] if ('j' in _) else j) for  _[ 'i'] in (_['zip'] if ('zip' in _) else
+zip)((_['l0'] if ('l0' in _) else l0), (_['l1'] if ('l1' in _) else l1)) for  
+_['j'] in (_['i'] if ('i' in _) else i)]), _.__setitem__('l', _['!']), _)[-1  
+])((lambda _: (_.__setitem__('!', [1373, 1281, 1288, 1373, 1290, 1294, 1375,
+1371,1289, 1281, 1280, 1293, 1289, 1280, 1373, 1294, 1289, 1280, 1372, 1288,  
+1375,1375, 1289, 1373, 1290, 1281, 1294, 1302, 1372, 1355, 1366, 1372, 1302,  
+1360, 1368, 1354, 1364, 1370, 1371, 1365, 1362, 1368, 1352, 1374, 1365, 1302  
+]), _.__setitem__('l1',_['!']), _)[-1])((lambda _: (_.__setitem__('!',[1375,
+1368, 1294, 1293, 1373, 1295, 1290, 1373, 1290, 1293, 1280, 1368, 1368,1294,  
+1293, 1368, 1372, 1292, 1290, 1291, 1371, 1375, 1280, 1372, 1281, 1293,1373,  
+1371, 1354, 1370, 1356, 1354, 1355, 1370, 1357, 1357, 1302, 1366, 1303,1368,  
+1354, 1355, 1356, 1303, 1366, 1371]), _.__setitem__('l0', _['!']), _)[(-1)])  
+            ({ 'g': g, 'c': c, 'd': d, '$': None})))))))['$'])
+
+g=1 #Not a multiple of 4  
+d=1 #Any integer  
+c=0 #What we need to find
+
+for guess in range(c, 10000):  
+    try:
+        print "%d: %s"%(guess, quark(g, guess, d))
+    except:
+        ##For certain values of c chr() throws an exception
+        pass
+</code></pre>
+
+<p>(fig 16)</p>
+
+<p>Running this code will produce a mess of strings scrolling up the screen, looking at the output you should see one string with a URL in - the magic value for this 1337 - cute </p>
+
+<pre><code>1335:!lbai{o|e}bolmac!}zozgm!|k}a{|mk}!l9j6:=6jk&gt;7hhhl?&lt;k=7;&gt;k9oj:79&gt;o:o776:&gt;=ljh=98=jj:?96ojh  
+1336:.cmnf/pt`sjrm`c/bnl.ru`uhb.sdrntsbdr.c6e9529ed18gggc03d2841d6`e5861`5`889512ceg2672ee5069`eg  
+1337:/blog.quarkslab.com/static/resources/b7d8438de09fffb12e3950e7ad4970a4a998403bdf3763dd4178adf  
+1338:,aold-rvbqhpoba-`ln,pwbwj`,qfplvq`fp,a4g;70;gf3:eeea21f0:63f4bg7:43b7b::;730age0450gg724;bge  
+</code></pre>
+
+<p>(fig 17)</p>
+
+<p>Going to <a href="">blog.quarkslab.com/static/resources/b7d8438de09fffb12e3950e7ad4970a4a998403bdf3763dd4178adf</a> results in a file downloading.</p>
+
+<p>A pure Python equivilent of the transformations done by the lambda's follows to aid any understanding that is needed:</p>
+
+<pre><code class="prettyprint codelang-python">l = [1375, 1373, 1368, 1281, 1294, 1288, 1293, 1373, 1373, 1290, 1295,  
+1294, 1290, 1375, 1373, 1371, 1290, 1289, 1293, 1281, 1280, 1280, 1368,  
+1293, 1368, 1289, 1294, 1280, 1293, 1373, 1368, 1294, 1372, 1289, 1292,  
+1280, 1290, 1372, 1291, 1288, 1371, 1375, 1375, 1375, 1280, 1289, 1372,  
+1373, 1281, 1290, 1293, 1281, 1373, 1294, 1371, 1302, 1354, 1372, 1370,  
+1355, 1356, 1366, 1354, 1372, 1355, 1302, 1370, 1360, 1357, 1368, 1357,  
+1354, 1302, 1364, 1366, 1370, 1303, 1371, 1368, 1365, 1354, 1362, 1355,  
+1368, 1356, 1352, 1303, 1374, 1366, 1365, 1371, 1302]  
+l.reverse()  
+c = 1337  
+out = []  
+for x in l:  
+    out.append(chr(x^c))
+
+print ''.join(out)  
+</code></pre>
+
+<p>(fig 18)</p>
+
+<h2 id="customisey0pythons">Customise y0 Pythons</h2>
+
+<p>Once downloaded a quick inspection of the data shows it to be a 64-bit ELF binary, time to spin up a fresh Linux VM.</p>
+
+<pre><code class="prettyprint codelang-bash">$ file b7d8438de09fffb12e3950e7ad4970a4a998403bdf3763dd4178adf
+b7d8438de09fffb12e3950e7ad4970a4a998403bdf3763dd4178adf: ELF 64-bit LSB  
+executable, x86-64, version 1 (SYSV), dynamically linked (uses shared  
+libs), for GNU/Linux 2.6.26, not stripped  
+</code></pre>
+
+<p>(fig 19)</p>
+
+<p>Running <code>strings</code> on the binary returns a wealth of strings that look very much like function names and modules from a C Python runtime e.g.</p>
+
+<pre><code class="prettyprint codelang-bash">....
+PySymtable_Build  
+PyUnicodeUCS2_DecodeUTF16Stateful  
+PyComplex_FromCComplex  
+fwrite@@GLIBC_2.2.5  
+_PyGILState_Init  
+PyStructSequence_InitType  
+PyString_Concat  
+PyAST_Check  
+....
+</code></pre>
+
+<p>(fig 20)</p>
+
+<p>Running the binary however returns an error:</p>
+
+<pre><code class="prettyprint codelang-bash">$ ./b7d8438de09fffb12e3950e7ad4970a4a998403bdf3763dd4178adf
+Could not find platform independent libraries &lt;prefix&gt;  
+Could not find platform dependent libraries &lt;exec_prefix&gt;  
+Consider setting $PYTHONHOME to &lt;prefix&gt;[:&lt;exec_prefix&gt;]  
+ImportError: No module named site  
+</code></pre>
+
+<p>(fig 21)</p>
+
+<p>Yup! Looks like an unhappy Python runtime to me, lets set the <code>PYTHONHOME</code> environment variable and strace the execution to see what the binary is looking for:</p>
+
+<pre><code class="prettyprint codelang-bash">$ export PYTHONHOME="/tmp/quark"
+$ strace ./b7d8438de09fffb12e3950e7ad4970a4a998403bdf3763dd4178adf
+
+&lt;snipped for brevity&gt;  
+stat("/tmp/quark/lib/python2.7", {st_mode=S_IFDIR|0755, st_size=4096,  
+...}) = 0
+stat("/tmp/quark/lib/python2.7/lib-dynload", 0x7fff150b0eb0) = -1 ENOENT  
+(No such file or directory)
+write(2, "ImportError", 11ImportError)             = 11  
+write(2, ": ", 2: )                       = 2  
+write(2, "No module named site", 20No module named site)    = 20  
+write(2, "\n", 1  
+)                       = 1
+rt_sigaction(SIGINT, {SIG_DFL, [], SA_RESTORER, 0x7fd97079f340},  
+{0x4fde10, [], SA_RESTORER, 0x7fd97079f340}, 8) = 0
+exit_group(1)                           = ?  
++++ exited with 1 +++
+</code></pre>
+
+<p>(fig 22)</p>
+
+<p>OK as expected with a Python runtime initialising it is looking for the <a href='https://docs.python.org/2/library/site.html' >site module</a>, specifically it is looking for it in the <code>lib/python2.7</code> subdirectory of where <code>PYTHONHOME</code> was set to be. Let's pop a empty <code>site.py</code> at that location and see if the mystery binary complains less:</p>
+
+<pre><code class="prettyprint codelang-bash">$ ./b7d8438de09fffb12e3950e7ad4970a4a998403bdf3763dd4178adf
+Python 2.7.8+ (nvcs/newopcodes:a9bd62e4d5f2+, Sep  1 2014, 11:41:46)  
+[GCC 4.8.2] on linux2
+Type "help", "copyright", "credits" or "license" for more information.  
+</code></pre>
+
+<p>(fig 23)</p>
+
+<p>OK awesome, we are dropped to an interactive shell that has a strange banner but on the surface behaves like what we would expect. Now to begin to look for the secret song name .....</p>
+
+<h2 id="jumpintothec">Jump Into The C</h2>
+
+<p>As the binary doesn't come with any site-packages it's functionality is very limited. The first question I had was whether the binary was using the standard opcode table mappings, a quick test for this is to see if the runtime can import a <code>.pyc</code> module created by a standard Python 2.7.x runtime. I tested this and it imports standard Python bytecode fine, so opcodes seem normal. This is good as if we want to add in functionality from exiting Python modules such as <code>inspect</code> or <code>pdb</code> we can do so.</p>
+
+<p>Let's first see what the builtins are in this runtime:</p>
+
+<pre><code class="prettyprint codelang-python">&gt;&gt;&gt; import sys
+&gt;&gt;&gt; sys.builtin_module_names
+('__builtin__', '__main__', '_ast', '_codecs', '_sre', '_symtable',
+'_warnings', '_weakref', 'do_not_run_me', 'errno', 'exceptions', 'gc',  
+'imp', 'marshal', 'posix', 'pwd', 'signal', 'sys', 'tb', 'tb_div',  
+'tb_mod', 'tb_mult', 'tb_sub', 'thread', 'xxsubtype', 'zipimport')  
+</code></pre>
+
+<p>(fig 24)</p>
+
+<p>Probably a safe guess that <code>do_not_run_me</code> is a non-standard builtin, everything else looks normal though. Let's import it and see what we get:</p>
+
+<pre><code class="prettyprint codelang-python">&gt;&gt;&gt; import do_not_run_me
+&gt;&gt;&gt; dir(do_not_run_me)
+['__doc__', '__name__', '__package__', 'run_me']
+&gt;&gt;&gt; type(do_not_run_me.run_me)
+&lt;type 'builtin_function_or_method'&gt;  
+</code></pre>
+
+<p>(fig 25)</p>
+
+<pre><code class="prettyprint codelang-python">&gt;&gt;&gt; do_not_run_me.run_me.__doc__
+'There are two kinds of people in the world: those who say there is no  
+such thing as infinite recursion, and those who say ``There are two  
+kinds of people in the world: those who say there is no such thing as  
+infinite recursion, and those who say ...'  
+</code></pre>
+
+<p>(fig 26)</p>
+
+<p>OK docs not that helpful, let's just run <code>do_not_run_me.run_me</code> function ..</p>
+
+<pre><code class="prettyprint codelang-python">&gt;&gt;&gt; do_not_run_me.run_me()
+Traceback (most recent call last):  
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+TypeError: function takes exactly 1 argument (0 given)  
+</code></pre>
+
+<p>(fig 27)</p>
+
+<p>Pass in a guessed args:</p>
+
+<pre><code class="prettyprint codelang-python">&gt;&gt;&gt; do_not_run_me.run_me(1337)
+Traceback (most recent call last):  
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+TypeError: must be string or read-only buffer, not int  
+</code></pre>
+
+<p>(fig 28)</p>
+
+<p>OK now a string arg:</p>
+
+<pre><code class="prettyprint codelang-python">&gt;&gt;&gt; do_not_run_me.run_me("test")
+Segmentation fault  
+</code></pre>
+
+<p>(fig 29)</p>
+
+<p>Hmmm, a segfault is far more indicative of something screwy in the C Python runtime than anything at the python language layer. This however didn't stop me from dicking around for 30 mins or so getting the <code>dis</code> and <code>pdb</code> modules (and the million dependency modules) copied over to <code>/tmp/quark/lib/python2.7/site-packages</code>. Interestingly the <code>itertools</code> module was not available or builtin to the binary so to satisfy some dependencies pure Python versions of some of the functions had to be <br />
+patched into the depending modules.  Once done I played around to see what <code>dis</code> could tell me about the <code>do_not_run_me</code> module. In short, jack shit.</p>
+
+<p>Right fuckit, let's jump into the binary itself - fire up IDA Pro or if you don't have that then <a href='http://www.hopperapp.com/' >Hopper</a> has a free trial.</p>
+
+<p>Symbols hadn't been stripped so finding the code relating to the do<em>not</em>run_me module was pretty straightforward, a psuedo code example of them is below:</p>
+
+<pre><code class="prettyprint codelang-c">function initdo_not_run_me {  
+    rax = Py_InitModule4_64("do_not_run_me", HelloMethods, 0x0, 0x0, 0x3f5);
+    return rax;
+}
+</code></pre>
+
+<p>(fig 30)</p>
+
+<pre><code class="prettyprint codelang-c">function run_me {  
+    rsp = rsp - 0x28;
+    rax = PyArg_ParseTuple(rsi, 0x56c70b, rsp, rsp + 0x10, r8, r9, rbx);
+    LODWORD(rdx) = 0x0;
+    if (LODWORD(rax) != 0x0) {
+            rbx = *(*(*_PyThreadState_Current + 0x10) + 0x30);
+            PyObject_Call(PyFunction_New(PyMarshal_ReadObjectFromString(incr.9351,
+0x91), rbx), PyTuple_New(0x0), 0x0);  
+            rbp = PyObject_Call(PyFunction_New(PyMarshal_ReadObjectFromString(*rsp, *(rsp + 0x10)), rbx), PyTuple_New(0x0), 0x0);
+            PyObject_Call(PyFunction_New(PyMarshal_ReadObjectFromString(decr.9357,
+0x217), rbx), PyTuple_New(0x0), 0x0);  
+            rdx = rbp;
+    }
+    rax = rdx;
+    return rax;
+}
+</code></pre>
+
+<p>(fig 31)</p>
+
+<p>The init code of <code>do_not_run_me</code> looks absolutely standard. The code associated with <code>run_me</code> shows the use of Python marshaling via the <code>PyMarshal_ReadObjectFromString()</code> function  (docs here <a href="">https://docs.python.org/2/c-api/marshal.html</a>) of two strings referenced as <code>incr.9351</code> and <code>decr.9357</code>.</p>
+
+<p>Looking in the binary the two blobs of data that are referenced as <code>incr.9351</code> and <code>decr.9357</code> can be easily found and carved out,  they are shown below in their Python hex string form:</p>
+
+<pre><code class="prettyprint codelang-python">\x63\x00\x00\x00\x00\x01\x00\x00\x00\x02\x00\x00\x00\x43\x00\x00\x00\x73
+\x14\x00\x00\x00\x64\x01\x00\x87\x00\x00\x7c\x00\x00\x64\x01\x00\x3c\x61
+\x00\x00\x7c\x00\x00\x1b\x28\x02\x00\x00\x00\x4e\x69\x01\x00\x00\x00\x28
+\x01\x00\x00\x00\x74\x04\x00\x00\x00\x54\x72\x75\x65\x28\x01\x00\x00\x00
+\x74\x0e\x00\x00\x00\x52\x6f\x62\x65\x72\x74\x5f\x46\x6f\x72\x73\x79\x74
+\x68\x28\x00\x00\x00\x00\x28\x00\x00\x00\x00\x73\x10\x00\x00\x00\x6f\x62
+\x66\x75\x73\x63\x61\x74\x65\x2f\x67\x65\x6e\x2e\x70\x79\x74\x03\x00\x00
+\x00\x66\x6f\x6f\x05\x00\x00\x00\x73\x06\x00\x00\x00\x00\x01\x06\x02\x0a
+\x01\x00\x00\x00\x00\x00\x00\x00\x54\x68\x65\x72\x65\x20\x61\x72\x65\x20
+\x74\x77\x6f\x20\x6b\x69\x6e\x64\x73\x20\x6f\x66\x20\x70\x65\x6f\x70\x6c
+\x65\x20\x69\x6e\x20\x74\x68\x65\x20\x77\x6f\x72\x6c\x64\x3a\x20\x74\x68
+\x6f\x73\x65\x20\x77\x68\x6f\x20\x73\x61\x79\x20\x74\x68\x65\x72\x65\x20
+\x69\x73\x20\x6e\x6f\x20\x73\x75\x63\x68\x20\x74\x68\x69\x6e\x67\x20\x61
+\x73\x20\x69\x6e\x66\x69\x6e\x69\x74\x65\x20\x72\x65\x63\x75\x72\x73\x69
+\x6f\x6e\x2c\x20\x61\x6e\x64\x20\x74\x68\x6f\x73\x65\x20\x77\x68\x6f\x20
+\x73\x61\x79\x20\x60\x60\x54\x68\x65\x72\x65\x20\x61\x72\x65\x20\x74\x77
+\x6f\x20\x6b\x69\x6e\x64\x73\x20\x6f\x66\x20\x70\x65\x6f\x70\x6c\x65\x20
+\x69\x6e\x20\x74\x68\x65\x20\x77\x6f\x72\x6c\x64\x3a\x20\x74\x68\x6f\x73
+\x65\x20\x77\x68\x6f\x20\x73\x61\x79\x20\x74\x68\x65\x72\x65\x20\x69\x73
+\x20\x6e\x6f\x20\x73\x75\x63\x68\x20\x74\x68\x69\x6e\x67\x20\x61\x73\x20
+\x69\x6e\x66\x69\x6e\x69\x74\x65\x20\x72\x65\x63\x75\x72\x73\x69\x6f\x6e
+\x2c\x20\x61\x6e\x64\x20\x74\x68\x6f\x73\x65\x20\x77\x68\x6f\x20\x73\x61
+\x79\x20\x2e\x2e\x2e\x00\x61\x39\x62\x64\x36\x32\x65\x34\x64\x35\x66\x32
+\x2b\x00\x6e\x76\x63\x73\x2f\x6e\x65\x77\x6f\x70\x63\x6f\x64\x65\x73\x00
+\x25\x73\x25\x73\x25\x73\x2c\x20\x25\x2e\x32\x30\x73\x2c\x20\x25\x2e\x39
+\x73\x00\x31\x31\x3a\x34\x31\x3a\x34\x36\x00\x53\x65\x70\x20\x20\x31\x20
+\x32\x30\x31\x34\x00\x00\x00\x00\x00\x00\x00\x00\x55\x6e\x76\x65\x72\x73
+\x69\x6f\x6e\x65\x64\x20\x64\x69\x72\x65\x63\x74\x6f\x72\x79\x00
+</code></pre>
+
+<p>(fig 32 - incr.9351)</p>
+
+<pre><code class="prettyprint codelang-python">\x63\x00\x00\x00\x00\x00\x00\x00\x00\x1d\x00\x00\x00\x43\x00\x00\x00\x73
+\x8b\x00\x00\x00\x7c\x00\x00\x64\x01\x00\x6b\x03\x00\x72\x19\x00\x7c\x00
+\x00\x64\x02\x00\x55\x61\x00\x00\x6e\x6e\x00\x7c\x01\x00\x6a\x02\x00\x64
+\x03\x00\x6a\x03\x00\x64\x04\x00\x77\x00\x00\xa0\x05\x00\xc8\x06\x00\xa0
+\x07\x00\xb2\x08\x00\xa0\x09\x00\xea\x0a\x00\xa0\x0b\x00\x91\x08\x00\xa0
+\x0c\x00\x9e\x0b\x00\xa0\x0d\x00\xd4\x08\x00\xa0\x0e\x00\xd5\x0f\x00\xa0
+\x10\x00\xdd\x11\x00\xa0\x07\x00\xcc\x08\x00\xa0\x12\x00\x78\x0b\x00\xa0
+\x13\x00\x87\x0f\x00\xa0\x14\x00\x5b\x15\x00\xa0\x16\x00\x97\x17\x00\x67
+\x1a\x00\x53\x86\x01\x00\x86\x01\x00\x86\x01\x00\x54\x64\x00\x00\x1b\x28
+\x18\x00\x00\x00\x4e\x69\x03\x00\x00\x00\x69\x01\x00\x00\x00\x74\x00\x00
+\x00\x00\x63\x01\x00\x00\x00\x02\x00\x00\x00\x04\x00\x00\x00\x73\x00\x00
+\x00\x73\x1f\x00\x00\x00\x8f\x00\x00\x5d\x15\x00\x87\x01\x00\x7c\x00\x00
+\x8f\x01\x00\x64\x00\x00\x4e\x86\x01\x00\x59\x54\x71\x03\x00\x64\x01\x00
+\x1b\x28\x02\x00\x00\x00\x69\x0d\x00\x00\x00\x4e\x28\x01\x00\x00\x00\x74
+\x03\x00\x00\x00\x63\x68\x72\x28\x02\x00\x00\x00\x74\x02\x00\x00\x00\x2e
+\x30\x74\x01\x00\x00\x00\x5f\x28\x00\x00\x00\x00\x28\x00\x00\x00\x00\x73
+\x10\x00\x00\x00\x6f\x62\x66\x75\x73\x63\x61\x74\x65\x2f\x67\x65\x6e\x2e
+\x70\x79\x73\x09\x00\x00\x00\x3c\x67\x65\x6e\x65\x78\x70\x72\x3e\x16\x00
+\x00\x00\x73\x02\x00\x00\x00\x06\x00\x69\x4b\x00\x00\x00\x69\x62\x00\x00
+\x00\x69\x7f\x00\x00\x00\x69\x2d\x00\x00\x00\x69\x59\x00\x00\x00\x69\x65
+\x00\x00\x00\x69\x68\x00\x00\x00\x69\x43\x00\x00\x00\x69\x7a\x00\x00\x00
+\x69\x41\x00\x00\x00\x69\x78\x00\x00\x00\x69\x63\x00\x00\x00\x69\x6c\x00
+\x00\x00\x69\x5f\x00\x00\x00\x69\x7d\x00\x00\x00\x69\x6f\x00\x00\x00\x69
+\x61\x00\x00\x00\x69\x64\x00\x00\x00\x69\x6e\x00\x00\x00\x28\x04\x00\x00
+\x00\x74\x04\x00\x00\x00\x54\x72\x75\x65\x74\x09\x00\x00\x00\x71\x75\x61
+\x72\x6b\x73\x6c\x61\x62\x74\x06\x00\x00\x00\x61\x70\x70\x65\x6e\x64\x74
+\x04\x00\x00\x00\x6a\x6f\x69\x6e\x28\x00\x00\x00\x00\x28\x00\x00\x00\x00
+\x28\x00\x00\x00\x00\x73\x10\x00\x00\x00\x6f\x62\x66\x75\x73\x63\x61\x74
+\x65\x2f\x67\x65\x6e\x2e\x70\x79\x74\x03\x00\x00\x00\x66\x6f\x6f\x11\x00
+\x00\x00\x73\x06\x00\x00\x00\x00\x02\x0c\x01\x0d\x02\x00\x00\x00\x00\x00
+\x00\x00\x00\x00
+</code></pre>
+
+<p>(fig 33 - decr.9357)</p>
+
+<p>As we know they are inputs to marshal let's try to unmarshal them, the binary doesn't have the marshal module builtin  so use  a standard Python runtime:</p>
+
+<pre><code class="prettyprint codelang-python">import marshal  
+import dis  
+x =  
+"\x63\x00\x00\x00\x00\x01\x00\x00\x00\x02\x00\x00\x00\x43\x00\x00\x00\x73  
+\x14\x00\x00\x00\x64\x01\x00\x87\x00\x00\x7c\x00\x00\x64\x01\x00\x3c\x61
+\x00\x00\x7c\x00\x00\x1b\x28\x02\x00\x00\x00\x4e\x69\x01\x00\x00\x00\x28
+\x01\x00\x00\x00\x74\x04\x00\x00\x00\x54\x72\x75\x65\x28\x01\x00\x00\x00
+\x74\x0e\x00\x00\x00\x52\x6f\x62\x65\x72\x74\x5f\x46\x6f\x72\x73\x79\x74
+\x68\x28\x00\x00\x00\x00\x28\x00\x00\x00\x00\x73\x10\x00\x00\x00\x6f\x62
+\x66\x75\x73\x63\x61\x74\x65\x2f\x67\x65\x6e\x2e\x70\x79\x74\x03\x00\x00
+\x00\x66\x6f\x6f\x05\x00\x00\x00\x73\x06\x00\x00\x00\x00\x01\x06\x02\x0a
+\x01\x00\x00\x00\x00\x00\x00\x00\x54\x68\x65\x72\x65\x20\x61\x72\x65\x20
+\x74\x77\x6f\x20\x6b\x69\x6e\x64\x73\x20\x6f\x66\x20\x70\x65\x6f\x70\x6c
+\x65\x20\x69\x6e\x20\x74\x68\x65\x20\x77\x6f\x72\x6c\x64\x3a\x20\x74\x68
+\x6f\x73\x65\x20\x77\x68\x6f\x20\x73\x61\x79\x20\x74\x68\x65\x72\x65\x20
+\x69\x73\x20\x6e\x6f\x20\x73\x75\x63\x68\x20\x74\x68\x69\x6e\x67\x20\x61
+\x73\x20\x69\x6e\x66\x69\x6e\x69\x74\x65\x20\x72\x65\x63\x75\x72\x73\x69
+\x6f\x6e\x2c\x20\x61\x6e\x64\x20\x74\x68\x6f\x73\x65\x20\x77\x68\x6f\x20
+\x73\x61\x79\x20\x60\x60\x54\x68\x65\x72\x65\x20\x61\x72\x65\x20\x74\x77
+\x6f\x20\x6b\x69\x6e\x64\x73\x20\x6f\x66\x20\x70\x65\x6f\x70\x6c\x65\x20
+\x69\x6e\x20\x74\x68\x65\x20\x77\x6f\x72\x6c\x64\x3a\x20\x74\x68\x6f\x73
+\x65\x20\x77\x68\x6f\x20\x73\x61\x79\x20\x74\x68\x65\x72\x65\x20\x69\x73
+\x20\x6e\x6f\x20\x73\x75\x63\x68\x20\x74\x68\x69\x6e\x67\x20\x61\x73\x20
+\x69\x6e\x66\x69\x6e\x69\x74\x65\x20\x72\x65\x63\x75\x72\x73\x69\x6f\x6e
+\x2c\x20\x61\x6e\x64\x20\x74\x68\x6f\x73\x65\x20\x77\x68\x6f\x20\x73\x61
+\x79\x20\x2e\x2e\x2e\x00\x61\x39\x62\x64\x36\x32\x65\x34\x64\x35\x66\x32
+\x2b\x00\x6e\x76\x63\x73\x2f\x6e\x65\x77\x6f\x70\x63\x6f\x64\x65\x73\x00
+\x25\x73\x25\x73\x25\x73\x2c\x20\x25\x2e\x32\x30\x73\x2c\x20\x25\x2e\x39
+\x73\x00\x31\x31\x3a\x34\x31\x3a\x34\x36\x00\x53\x65\x70\x20\x20\x31\x20
+\x32\x30\x31\x34\x00\x00\x00\x00\x00\x00\x00\x00\x55\x6e\x76\x65\x72\x73
+\x69\x6f\x6e\x65\x64\x20\x64\x69\x72\x65\x63\x74\x6f\x72\x79\x00"
+
+y = marshal.loads(x)  
+print y
+
+print dis.disco(y)  
+</code></pre>
+
+<p>(fig 34)</p>
+
+<p>This produces:  </p>
+
+<pre><code class="prettyprint codelang-python">&lt;code object foo at 0x1048105b0, file "obfuscate/gen.py", line 5&gt;  
+  6           0 LOAD_CONST               1 (1)
+              3 LOAD_CLOSURE             0
+Traceback (most recent call last):  
+  File "unm.py", line 8, in &lt;module&gt;
+    print dis.disco(y)
+  File
+"/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/dis.py",  
+line 107, in disassemble  
+    print '(' + free[oparg] + ')',
+IndexError: tuple index out of range  
+</code></pre>
+
+<p>(fig 35)</p>
+
+<p>As can be infered from the code objects name this is not a marshaled object of standard Python bytecode and so the disassembler crashes out when it gets confused.</p>
+
+<p>I assume that conversely whatever is given as the argument to <code>do_not_run_me.run_me</code> also needs to have an object using the same remapped crazy bytecode and so this is the source of the segfault when a passed in string does not unmarshal to a code object of the obfuscated type and gets passed to <code>PyObject_Call</code>. However, we can use the function to unmarshal and exec the crazy code objects we extracted from <br />
+the binary and return their output upon execution.</p>
+
+<p>Let's use the marshaled strings carved from the binary as input to the <code>do_not_run_me.run_me()</code>    function. Using the <code>incr.9351</code> data as input returns 3 and does not segfault, this is a good sign \o/. Using the <code>decr.9357</code> data as an input returns:</p>
+
+<pre><code class="prettyprint codelang-python">&gt;&gt;&gt; decr_9357_str =
+"\x63\x00\x00\x00\x00\x00\x00\x00\x00\x1d\x00\x00\x00\x43\x00\x00\x00\x73  
+\x8b\x00\x00\x00\x7c\x00\x00\x64\x01\x00\x6b\x03\x00\x72\x19\x00\x7c\x00
+\x00\x64\x02\x00\x55\x61\x00\x00\x6e\x6e\x00\x7c\x01\x00\x6a\x02\x00\x64
+\x03\x00\x6a\x03\x00\x64\x04\x00\x77\x00\x00\xa0\x05\x00\xc8\x06\x00\xa0
+\x07\x00\xb2\x08\x00\xa0\x09\x00\xea\x0a\x00\xa0\x0b\x00\x91\x08\x00\xa0
+\x0c\x00\x9e\x0b\x00\xa0\x0d\x00\xd4\x08\x00\xa0\x0e\x00\xd5\x0f\x00\xa0
+\x10\x00\xdd\x11\x00\xa0\x07\x00\xcc\x08\x00\xa0\x12\x00\x78\x0b\x00\xa0
+\x13\x00\x87\x0f\x00\xa0\x14\x00\x5b\x15\x00\xa0\x16\x00\x97\x17\x00\x67
+\x1a\x00\x53\x86\x01\x00\x86\x01\x00\x86\x01\x00\x54\x64\x00\x00\x1b\x28
+\x18\x00\x00\x00\x4e\x69\x03\x00\x00\x00\x69\x01\x00\x00\x00\x74\x00\x00
+\x00\x00\x63\x01\x00\x00\x00\x02\x00\x00\x00\x04\x00\x00\x00\x73\x00\x00
+\x00\x73\x1f\x00\x00\x00\x8f\x00\x00\x5d\x15\x00\x87\x01\x00\x7c\x00\x00
+\x8f\x01\x00\x64\x00\x00\x4e\x86\x01\x00\x59\x54\x71\x03\x00\x64\x01\x00
+\x1b\x28\x02\x00\x00\x00\x69\x0d\x00\x00\x00\x4e\x28\x01\x00\x00\x00\x74
+\x03\x00\x00\x00\x63\x68\x72\x28\x02\x00\x00\x00\x74\x02\x00\x00\x00\x2e
+\x30\x74\x01\x00\x00\x00\x5f\x28\x00\x00\x00\x00\x28\x00\x00\x00\x00\x73
+\x10\x00\x00\x00\x6f\x62\x66\x75\x73\x63\x61\x74\x65\x2f\x67\x65\x6e\x2e
+\x70\x79\x73\x09\x00\x00\x00\x3c\x67\x65\x6e\x65\x78\x70\x72\x3e\x16\x00
+\x00\x00\x73\x02\x00\x00\x00\x06\x00\x69\x4b\x00\x00\x00\x69\x62\x00\x00
+\x00\x69\x7f\x00\x00\x00\x69\x2d\x00\x00\x00\x69\x59\x00\x00\x00\x69\x65
+\x00\x00\x00\x69\x68\x00\x00\x00\x69\x43\x00\x00\x00\x69\x7a\x00\x00\x00
+\x69\x41\x00\x00\x00\x69\x78\x00\x00\x00\x69\x63\x00\x00\x00\x69\x6c\x00
+\x00\x00\x69\x5f\x00\x00\x00\x69\x7d\x00\x00\x00\x69\x6f\x00\x00\x00\x69
+\x61\x00\x00\x00\x69\x64\x00\x00\x00\x69\x6e\x00\x00\x00\x28\x04\x00\x00
+\x00\x74\x04\x00\x00\x00\x54\x72\x75\x65\x74\x09\x00\x00\x00\x71\x75\x61
+\x72\x6b\x73\x6c\x61\x62\x74\x06\x00\x00\x00\x61\x70\x70\x65\x6e\x64\x74
+\x04\x00\x00\x00\x6a\x6f\x69\x6e\x28\x00\x00\x00\x00\x28\x00\x00\x00\x00
+\x28\x00\x00\x00\x00\x73\x10\x00\x00\x00\x6f\x62\x66\x75\x73\x63\x61\x74
+\x65\x2f\x67\x65\x6e\x2e\x70\x79\x74\x03\x00\x00\x00\x66\x6f\x6f\x11\x00
+\x00\x00\x73\x06\x00\x00\x00\x00\x02\x0c\x01\x0d\x02\x00\x00\x00\x00\x00
+\x00\x00\x00\x00"
+&gt;&gt;&gt; do_not_run_me.run_me(decr_9357_str)
+Traceback (most recent call last):  
+  File "obfuscate/gen.py", line 22, in foo
+NameError: global name 'quarkslab' is not defined  
+</code></pre>
+
+<p>(fig 36)</p>
+
+<p>Let's make a quarklab list object:</p>
+
+<pre><code class="prettyprint codelang-python">&gt;&gt;&gt; quarkslab = []
+&gt;&gt;&gt; do_not_run_me.run_me(decr_9357_str)
+&gt;&gt;&gt; quarkslab
+['For The New Lunar Republic']
+</code></pre>
+
+<p>(fig 37)</p>
+
+<p>That looks like a thing, let's see if it hashes to the salted hash value given on the challenge page:</p>
+
+<pre><code class="prettyprint codelang-python">&gt;&gt;&gt; import hashlib
+&gt;&gt;&gt; hashlib.sha256("bacalhau"+'For The New Lunar Republic').hexdigest()
+'61b42c223973996c797a9a366c64c3595052ff71089b4ff13d3251b66b6366e9'  
+</code></pre>
+
+<p>(fig 38)</p>
+
+<p>Awesome, it looks like we are done.</p>
+
+<h2 id="theprize">The Prize!</h2>
+
+<p>Revel in it's glory:</p>
+
+<iframe width="420" height="315"  
+src='http://www.youtube.com/embed/sf0tYs5U5RI'  frameborder="0"  
+allowfullscreen></iframe>
+
+<h2 id="footnotes">Footnotes</h2>
+
+<p>The steps above are just the way I got through to the Pony song while drinking watermelon beer, there are likely other (smarter) ways that you could achieve the same results.</p>
+
+<p>Big thanks to the Quarkslab folks for creating a fun Python focussed challenge.</p>
+
+<p>If you find mistakes in the above let me know and I'll try and correct them.</p>]]></description><link>http://sin-ack.co.uk/2014/09/14/quarklabs-python-security-challenge-solution/</link><guid isPermaLink="false">07a887a4-7276-447c-b283-68af0d00976b</guid><dc:creator><![CDATA[Rich Smith]]></dc:creator><pubDate>Sun, 14 Sep 2014 20:37:21 GMT</pubDate></item><item><title><![CDATA[New Blog]]></title><description><![CDATA[<p>This is a new home where I will be sharing bits and peices such as conference presentations and explanations about any code released as open source.</p>
 
 <p>I am legendarily bad at keeping such things up to date so fingers crossed I will actually get into good habbits!</p>
 
