@@ -1,0 +1,67 @@
+==================================================================
+https://keybase.io/iodboi
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://sin-ack.co.uk
+  * I am iodboi (https://keybase.io/iodboi) on keybase.
+  * I have a public key with fingerprint B941 1F2A EF0E 8A9A 00E4  16CD C24A 4B21 8B61 E5F7
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "b9411f2aef0e8a9a00e416cdc24a4b218b61e5f7",
+            "host": "keybase.io",
+            "key_id": "c24a4b218b61e5f7",
+            "kid": "0101586243d3a8dbdfefd71602a4d435378ca0f2c46caa33c6785aea7d3dfa2f738a0a",
+            "uid": "7ab307c73743d88060f2f7fc320e0300",
+            "username": "iodboi"
+        },
+        "service": {
+            "hostname": "sin-ack.co.uk",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1422369201,
+    "expire_in": 157680000,
+    "prev": "9b99ef4191101a569a598ac3946f4b12d6b131848246ddf93472daa5763fae4f",
+    "seqno": 3,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.1
+Comment: https://keybase.io/crypto
+
+yMIgAnicbZJbSBVBGMePealOF0qCMsxgK7pwOszs7NmdPfQgPkQGJlgv3TjO7szo
+cmp3OxfLzLCoBCmRsqiUIrtxosvJLhRZqYUW9dAFX3zIsKCIkOxKF6pZsbfmZZjv
++/9/33wf3/1JmT5/xtBA4E/qBu/MeNRVmPSt6j1xuUYyHFothWukKBu5uGVXsJgb
+s+yEFJYMXYGQy4RxwDDRCQBMgapJTVkhiiFDbKiQhbgmBaRKJ+45BMYgcRa0HBET
+j4hFRfQ/+uhIAkAAQ1iVFUQRwdSgnHGqQRXIRKEKCiENmwRw2VRUkxCETFXDIcKI
+RhHlROYawgQQgUuO4DRiIKCZGtIEEGOgCivXuIlkwAACwBPGWcwmG5lQWw41HEuq
+DUgiVmWZzBuA18doPm7Zi4kZDZpOMBkVVjfmJBzT2SBSlYmEGw971kS162k3MyMy
+SokYlk3FGIWjisXilmNLYSiUZsLysFCRZaTqMoABiW1xrRiLWJ4ipKkYiOPVYVUC
+qRu6zrgCdSiGREKqTkI6JibSFZUrBpSpakAEsYJlRaWU60jRZEqI4CBOmMIlr69N
+tiOFkfgmqRjpqMImiWSMSbXdneuyfBl+X072GG8RfP7xU/6tx+lZ43yNd3e+7sha
+/2133fOS4wcG+wvSZ1Znb61qLrDfp9LvH+SAtrLlh86ah2tun5rZ2P8wvTPH/ODO
+T2EaqMDX5z1Y6hZsfzT4tejz5sbkhWU9kV9z8Ne+9i/Ta59Xu4OVU++96K3/seN8
+qum3P7O5dc3L2ZfWLn7SfmlFOK977MIgy637/nNie1t0cn1PugDuq9w/o683r7xo
+/pay9vzgxUVxe0/R5bf7OnpKP316SgfuLGjIv5o69rGl/PG5zmkoty6z0E5md6Tf
+lBefSj3LCbYNDWfMPbhtQnnunYaWuXhvZLjrZm9hoUseL6uNXjlZWlKsrcm3jyw5
+2uR/92rlrmuttwZ3nfwL39ctuw==
+=UgnM
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/iodboi
+
+==================================================================
